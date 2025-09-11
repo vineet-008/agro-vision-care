@@ -1,0 +1,14 @@
+{
+  "name": "arduino-auto-start",
+  "version": "1.0.0",
+  "description": "Auto-start Arduino bridge server with web app",
+  "scripts": {
+    "dev": "concurrently \"npm run bridge\" \"npm run web\"",
+    "bridge": "node start-bridge.js",
+    "web": "vite",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
