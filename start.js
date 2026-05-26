@@ -2,8 +2,8 @@
 
 const { spawn } = require('child_process');
 
-console.log('🚀 Starting Arduino Smart Sprinkler System...');
-console.log('📡 Connecting to Arduino on COM6...');
+console.log('Starting Sprinkler System');
+console.log('Connecting to Arduino on COM6');
 
 // Start Arduino bridge server
 const bridgeProcess = spawn('node', ['arduino-bridge-server.cjs'], {
@@ -13,7 +13,7 @@ const bridgeProcess = spawn('node', ['arduino-bridge-server.cjs'], {
 
 // Wait a moment for bridge to start
 setTimeout(() => {
-  console.log('🌐 Starting web application...');
+  console.log('Starting web application');
   
   // Start web application
   const webProcess = spawn('npm', ['run', 'dev'], {
@@ -24,7 +24,7 @@ setTimeout(() => {
 
   // Handle process termination
   process.on('SIGINT', () => {
-    console.log('\n🛑 Shutting down Smart Sprinkler System...');
+    console.log('\n Shutting down Sprinkler System');
     bridgeProcess.kill();
     webProcess.kill();
     process.exit(0);
